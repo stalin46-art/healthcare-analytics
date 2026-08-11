@@ -1,0 +1,269 @@
+/* ────────────────────────────────────────────────
+   Dashboard Page — Ultra Premium v3
+──────────────────────────────────────────────── */
+
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-app);
+  color: var(--text-primary);
+}
+
+.dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+/* ── Content Area ── */
+.dashboard-content {
+  padding: 28px 32px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    padding: 16px 16px 40px;
+    gap: 20px;
+  }
+}
+
+/* ── Page Title Bar ── */
+.page-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.page-title-group h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.page-title-group p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.page-title-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── KPI Grid ── */
+.dashboard-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+@media (max-width: 480px) {
+  .dashboard-kpi-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
+
+/* ── Risk Alert Banner ── */
+.risk-alert-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 22px;
+  border-radius: var(--radius-xl);
+  background: var(--risk-high-bg);
+  border: 1px solid var(--risk-high-border);
+  box-shadow: var(--risk-high-glow);
+  animation: fadeInUp 0.4s ease;
+  flex-wrap: wrap;
+}
+
+.risk-alert-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.risk-alert-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--risk-high-bg);
+  border: 1px solid var(--risk-high-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--risk-high);
+  flex-shrink: 0;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+.risk-alert-info h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--risk-high);
+}
+
+.risk-alert-info p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.view-radar-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: var(--radius-md);
+  background: var(--risk-high);
+  color: #fff;
+  border: none;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  box-shadow: var(--risk-high-glow);
+}
+
+.view-radar-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ── Section Header ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.section-header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-header-title h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.section-header-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Tab Bar ── */
+.quick-tabs-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 5px;
+  width: fit-content;
+  flex-wrap: wrap;
+}
+
+.quick-tab-btn {
+  padding: 8px 18px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.845rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.quick-tab-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-surface-hover);
+}
+
+.quick-tab-btn.active {
+  background: var(--primary-gradient);
+  color: #fff;
+  box-shadow: var(--shadow-glow-sm);
+}
+
+@media (max-width: 640px) {
+  .quick-tabs-bar { width: 100%; justify-content: stretch; }
+  .quick-tab-btn { flex: 1; justify-content: center; padding: 8px 10px; font-size: 0.78rem; }
+}
+
+/* ── Welcome Banner (overview) ── */
+.welcome-banner {
+  background: var(--primary-gradient);
+  border-radius: var(--radius-xl);
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  overflow: hidden;
+  position: relative;
+  animation: fadeInUp 0.4s ease;
+}
+
+.welcome-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(255,255,255,0.1) 0%, transparent 60%),
+    radial-gradient(ellipse at 10% 80%, rgba(0,0,0,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.welcome-text h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+}
+
+.welcome-text p {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.88rem;
+  margin-top: 4px;
+}
+
+.welcome-time {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 8px;
+}

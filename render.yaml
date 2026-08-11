@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: healthcare-analytics
+    env: node
+    buildCommand: npm run build && cd backend && npm install
+    startCommand: node backend/server.js
+    envVars:
+      - key: PORT
+        value: 5001
+      - key: DB_URL
+        fromDatabase:
+          name: healthcare-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: GROQ_API_KEY
+        sync: false
+
+databases:
+  - name: healthcare-db
+    databaseName: healthcare
+    user: healthcare_user

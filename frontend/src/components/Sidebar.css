@@ -1,0 +1,327 @@
+/* ────────────────────────────────────────────────
+   Sidebar — Ultra Premium v3
+──────────────────────────────────────────────── */
+
+.app-sidebar {
+  width: var(--sidebar-width);
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-normal);
+  overflow: hidden;
+}
+
+/* Subtle inner glow top edge */
+.app-sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  opacity: 0.5;
+}
+
+/* ── Brand ── */
+.sidebar-brand {
+  height: var(--header-height);
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.brand-icon-wrapper {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--primary-gradient);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-glow-sm);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.brand-icon-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 11px;
+  background: var(--primary-gradient);
+  opacity: 0.3;
+  filter: blur(6px);
+  z-index: -1;
+}
+
+.brand-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+
+.brand-tag {
+  margin-left: auto;
+  font-size: 0.62rem;
+  font-weight: 700;
+  background: var(--primary-gradient);
+  color: #fff;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+  box-shadow: var(--shadow-glow-sm);
+}
+
+/* ── Nav ── */
+.sidebar-nav {
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebar-nav::-webkit-scrollbar { width: 0; }
+
+.nav-section-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  padding: 16px 12px 6px;
+  user-select: none;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+  transition: all var(--transition-fast);
+}
+
+.nav-item:hover {
+  color: var(--text-primary);
+  background: var(--bg-surface-hover);
+}
+
+.nav-item:hover .nav-item-icon {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.nav-item.active {
+  color: var(--primary);
+  background: var(--primary-light);
+  font-weight: 600;
+}
+
+.nav-item.active .nav-item-icon {
+  background: var(--primary-gradient);
+  color: #fff;
+  box-shadow: var(--shadow-glow-sm);
+}
+
+/* Active left accent bar */
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  border-radius: 0 3px 3px 0;
+  background: var(--primary);
+}
+
+.nav-item-label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Badge on nav item (e.g. alert count) */
+.nav-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: var(--risk-high);
+  color: #fff;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  min-width: 20px;
+  text-align: center;
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* ── Mini divider in nav ── */
+.nav-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 8px 12px;
+}
+
+/* ── Sidebar Footer ── */
+.sidebar-footer {
+  padding: 12px;
+  border-top: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.sidebar-status-card {
+  background: var(--primary-gradient-soft);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-pulse-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
+.status-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  animation: pulseRing 2s ease-out infinite;
+}
+
+.status-text {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.status-sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Sidebar user mini-profile */
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-hover);
+  margin-bottom: 8px;
+  cursor: default;
+}
+
+.sidebar-user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar-user-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.sidebar-user-role {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+/* ── Mobile ── */
+@media (max-width: 900px) {
+  .app-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-xl);
+    z-index: 200;
+  }
+
+  .app-sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+/* ── Sidebar overlay (mobile) ── */
+.sidebar-mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 190;
+  animation: fadeIn 0.2s ease;
+}
+
+@media (max-width: 900px) {
+  .sidebar-mobile-overlay.visible {
+    display: block;
+  }
+}

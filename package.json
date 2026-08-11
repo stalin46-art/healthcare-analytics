@@ -1,0 +1,15 @@
+{
+  "name": "healthcare-analytics",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npm --prefix frontend run build",
+    "start": "node backend/server.js",
+    "prod": "npm run build && node backend/server.js",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev"
+  },
+  "dependencies": {
+    "react-router-dom": "^7.18.0",
+    "recharts": "^3.8.1"
+  }
+}

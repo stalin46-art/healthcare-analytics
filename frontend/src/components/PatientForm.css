@@ -1,0 +1,177 @@
+/* ────────────────────────────────────────────────
+   PatientForm — Ultra Premium v3
+──────────────────────────────────────────────── */
+
+.patient-form-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 0;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Form Header ── */
+.form-header-group {
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.form-header-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--primary-gradient);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-glow-sm);
+  flex-shrink: 0;
+}
+
+.form-header-text h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.form-header-text p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+/* ── Form Body ── */
+.form-body {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Field Grid ── */
+.patient-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+/* ── Individual Field ── */
+.form-field-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-field-wrapper label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Input with Icon ── */
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-icon .field-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--text-muted);
+  pointer-events: none;
+  z-index: 1;
+  transition: color var(--transition-fast);
+}
+
+.input-with-icon:focus-within .field-icon {
+  color: var(--primary);
+}
+
+.input-with-icon .form-control {
+  padding-left: 38px;
+}
+
+/* ── Divider ── */
+.form-section-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.form-section-divider::before,
+.form-section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+/* ── Form Actions ── */
+.form-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 28px;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-surface-2);
+}
+
+.form-actions-left {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.form-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── Success toast inside form ── */
+.form-success-toast {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  background: var(--risk-low-bg);
+  border: 1px solid var(--risk-low-border);
+  color: var(--risk-low);
+  font-size: 0.85rem;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ── AI Prediction Chip ── */
+.ai-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-violet);
+  background: var(--accent-violet-light);
+  border: 1px solid rgba(139,92,246,0.2);
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}

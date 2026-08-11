@@ -1,0 +1,197 @@
+/* ────────────────────────────────────────────────
+   DashboardCharts — Ultra Premium v3
+──────────────────────────────────────────────── */
+
+.charts-dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Charts Section Header ── */
+.charts-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.charts-section-title h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.charts-section-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  background: var(--primary-gradient);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Charts Grid ── */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .charts-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Chart Card ── */
+.chart-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 22px 24px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle top accent line */
+.chart-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 2px;
+  border-radius: 0 0 2px 2px;
+  background: var(--primary-gradient);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.chart-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-subtle);
+  transform: translateY(-2px);
+}
+
+.chart-card:hover::before { opacity: 1; }
+
+/* ── Chart Card Header ── */
+.chart-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.chart-card-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.01em;
+}
+
+.chart-card-title-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.chart-card-subtitle {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+/* ── Recharts Tooltip Override ── */
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-lg) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.82rem !important;
+  color: var(--text-primary) !important;
+}
+
+.recharts-tooltip-wrapper .recharts-tooltip-label {
+  color: var(--text-secondary) !important;
+  font-weight: 600 !important;
+}
+
+/* ── Chart Wrapper ── */
+.chart-wrapper {
+  height: 230px;
+  width: 100%;
+  flex: 1;
+}
+
+.chart-wrapper-tall {
+  height: 260px;
+  width: 100%;
+}
+
+/* ── Empty/Loading state ── */
+.chart-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.chart-empty-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--bg-surface-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+}
+
+/* ── Chart Footer Stats ── */
+.chart-footer-stats {
+  display: flex;
+  gap: 20px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.chart-footer-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.chart-footer-stat-value {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.chart-footer-stat-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
