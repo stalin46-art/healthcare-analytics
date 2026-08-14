@@ -220,8 +220,17 @@
 }
 
 @media (max-width: 640px) {
-  .quick-tabs-bar { width: 100%; justify-content: stretch; }
-  .quick-tab-btn { flex: 1; justify-content: center; padding: 8px 10px; font-size: 0.78rem; }
+  .quick-tabs-bar {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .quick-tab-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 8px 10px;
+    font-size: 0.78rem;
+  }
 }
 
 /* ── Welcome Banner (overview) ── */
@@ -243,8 +252,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 80% 50%, rgba(255,255,255,0.1) 0%, transparent 60%),
-    radial-gradient(ellipse at 10% 80%, rgba(0,0,0,0.1) 0%, transparent 50%);
+    radial-gradient(ellipse at 80% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse at 10% 80%, rgba(0, 0, 0, 0.1) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -256,7 +265,7 @@
 }
 
 .welcome-text p {
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.88rem;
   margin-top: 4px;
 }
@@ -264,6 +273,42 @@
 .welcome-time {
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   margin-top: 8px;
+}
+
+/* Allow dashboard content and Add Patient form to scroll */
+.dashboard-main {
+  min-height: 100vh;
+  height: auto;
+  overflow: visible;
+}
+
+.dashboard-content {
+  min-height: 100vh;
+  height: auto;
+  overflow: visible;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  height: auto;
+}
+
+body {
+  overflow-y: auto !important;
+}
+
+.dashboard-main {
+  min-height: 100vh;
+  height: auto;
+  overflow: visible !important;
+}
+
+.dashboard-content {
+  min-height: 100vh;
+  height: auto;
+  overflow: visible !important;
 }
